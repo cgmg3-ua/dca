@@ -52,4 +52,7 @@ Optimización de make: A medida que aumentaste el número de trabajos en paralel
 Impacto de ccache: La utilización de ccache mostró mejoras significativas en el tiempo de compilación, especialmente en compilaciones repetidas. La mejora fue de 0.150 segundos en la segunda ejecución, lo que indica una efectividad del 83% en el uso de la caché.
 
 Eficiencia de distcc: Usar distcc también proporcionó mejoras en los tiempos de compilación. La primera vez, se redujo a 0.600 segundos, lo que demuestra la ventaja de la distribución del trabajo entre varias máquinas.
+
 Mi ordenador tiene 4 nucleos y 8 procesadores logicos.
+
+url del proyecto:https://github.com/cgmg3-ua/dca
