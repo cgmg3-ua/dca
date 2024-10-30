@@ -18,7 +18,7 @@ N	Tiempo (s)
 10	1.426
 
 Análisis de Resultados
-Punto óptimo: Observas que la mejor mejora en los tiempos de compilación ocurre entre -j4 y -j6, con un tiempo mínimo de 0.874 segundos en -j6. Esto es consistente con la capacidad de mi procesador, que tiene 4 núcleos físicos y 8 hilos lógicos, lo que permite una buena utilización del paralelismo.
+Punto óptimo: Se observa que la mejor mejora en los tiempos de compilación ocurre entre -j4 y -j6, con un tiempo mínimo de 0.874 segundos en -j6. Esto es consistente con la capacidad de mi procesador, que tiene 4 núcleos físicos y 8 hilos lógicos, lo que permite una buena utilización del paralelismo.
 
 Punto de saturación: A partir de -j6, los tiempos de compilación comienzan a fluctuar y aumentar, sugiriendo que se ha alcanzado la capacidad óptima de paralelización. Esto se observa especialmente en -j10, donde el tiempo aumenta a 1.426 segundos.
 
@@ -56,7 +56,7 @@ Primera compilación: Con distcc, la primera compilación tomó 0.600 segundos, 
 Compilación posterior: La segunda vez, el tiempo fue de 0.650 segundos, que es aún competitivo, aunque muestra cierta variación probablemente debido a la sobrecarga de red o variaciones en la carga de las máquinas.
 
 Conclusiones Generales.
-Optimización de make: A medida que aumentaste el número de trabajos en paralelo con make, alcanzaste un punto óptimo en -j6 con el tiempo más corto de 0.874 segundos. Más allá de esto, los tiempos de compilación empezaron a aumentar.
+Optimización de make: A medida que aumente el número de trabajos en paralelo con make, se alanzo un punto óptimo en -j6 con el tiempo más corto de 0.874 segundos. Más allá de esto, los tiempos de compilación empezaron a aumentar.
 
 Impacto de ccache: La utilización de ccache mostró mejoras significativas en el tiempo de compilación, especialmente en compilaciones repetidas. La mejora fue de 0.150 segundos en la segunda ejecución, lo que indica una efectividad del 83% en el uso de la caché.
 
