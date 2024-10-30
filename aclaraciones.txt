@@ -1,0 +1,23 @@
+La url de mi codigo es:
+
+He comenazdo primero con con la parte de make poniedo de -j1 a -j10  
+-j1:1,537s
+-j2:0,993
+-j3:0,992s
+-j4:0,990s
+-j5:0,927s
+-j6:0,874
+-j7:0,881s
+-j8:0,827s
+-j9:0,845s
+-j10:1,426s
+
+Ahora para ccache 
+con ccache:
+sin ccache:
+
+Ahora para distcc:
+con distcc:
+sin distcc:
+
+Mi ordenador tiene 4 nucleos y 8 procesadores logicos.
