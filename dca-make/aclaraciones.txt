@@ -3,7 +3,7 @@
 
 Parte 1: Resultados de make -jN
 Tiempos de Compilación
-Los tiempos que has registrado para las compilaciones usando make -jN son los siguientes:
+Los tiempos registrados para las compilaciones usando make -jN son los siguientes:
 
 N	Tiempo (s)
 1	1.537
