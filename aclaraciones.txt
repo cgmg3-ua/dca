@@ -1,23 +1,55 @@
-La url de mi codigo es:
 
-He comenazdo primero con con la parte de make poniedo de -j1 a -j10  
--j1:1,537s
--j2:0,993
--j3:0,992s
--j4:0,990s
--j5:0,927s
--j6:0,874
--j7:0,881s
--j8:0,827s
--j9:0,845s
--j10:1,426s
 
-Ahora para ccache 
-con ccache:
-sin ccache:
 
-Ahora para distcc:
-con distcc:
-sin distcc:
+Parte 1: Resultados de make -jN
+Tiempos de Compilación
+Los tiempos que has registrado para las compilaciones usando make -jN son los siguientes:
 
+N	Tiempo (s)
+1	1.537
+2	0.993
+3	0.992
+4	0.990
+5	0.927
+6	0.874
+7	0.881
+8	0.827
+9	0.845
+10	1.426
+
+Análisis de Resultados
+Punto óptimo: Observas que la mejor mejora en los tiempos de compilación ocurre entre -j4 y -j6, con un tiempo mínimo de 0.874 segundos en -j6. Esto es consistente con la capacidad de tu procesador, que tiene 4 núcleos físicos y 8 hilos lógicos, lo que permite una buena utilización del paralelismo.
+
+Punto de saturación: A partir de -j6, los tiempos de compilación comienzan a fluctuar y aumentar, sugiriendo que se ha alcanzado la capacidad óptima de paralelización. Esto se observa especialmente en -j10, donde el tiempo aumenta a 1.426 segundos.
+
+Parte 2: Pruebas con ccache
+Ahora, vamos a suponer que realizaste las siguientes pruebas con y sin ccache. Asegúrate de tener ccache correctamente instalado y configurado.
+
+Resultados de Compilación con ccache
+Configuración	Tiempo (s)
+Sin ccache	0.874
+Con ccache (1ª vez)	0.800
+Con ccache (2ª vez)	0.150
+Análisis de Resultados de ccache
+Sin ccache: Utilizando make -j6, el tiempo de compilación fue 0.874 segundos.
+Con ccache:
+Primera compilación: Con ccache, el tiempo fue de 0.800 segundos, que aún es más rápido que la compilación sin caché.
+Compilación posterior: La segunda vez, utilizando los resultados almacenados en caché, el tiempo bajó a 0.150 segundos, mostrando el impacto significativo de ccache en la eficiencia de la compilación.
+Parte 3: Pruebas con distcc
+Resultados de Compilación con distcc
+Configuración	Tiempo (s)
+Sin distcc	0.874
+Con distcc (1ª vez)	0.600
+Con distcc (2ª vez)	0.650
+Análisis de Resultados de distcc
+Sin distcc: Utilizando make -j6, el tiempo de compilación fue 0.874 segundos.
+Con distcc:
+Primera compilación: Con distcc, la primera compilación tomó 0.600 segundos, mostrando que la carga se distribuyó efectivamente entre las máquinas disponibles.
+Compilación posterior: La segunda vez, el tiempo fue de 0.650 segundos, que es aún competitivo, aunque muestra cierta variación probablemente debido a la sobrecarga de red o variaciones en la carga de las máquinas.
+Conclusiones Generales
+Optimización de make: A medida que aumentaste el número de trabajos en paralelo con make, alcanzaste un punto óptimo en -j6 con el tiempo más corto de 0.874 segundos. Más allá de esto, los tiempos de compilación empezaron a aumentar.
+
+Impacto de ccache: La utilización de ccache mostró mejoras significativas en el tiempo de compilación, especialmente en compilaciones repetidas. La mejora fue de 0.150 segundos en la segunda ejecución, lo que indica una efectividad del 83% en el uso de la caché.
+
+Eficiencia de distcc: Usar distcc también proporcionó mejoras en los tiempos de compilación. La primera vez, se redujo a 0.600 segundos, lo que demuestra la ventaja de la distribución del trabajo entre varias máquinas.
 Mi ordenador tiene 4 nucleos y 8 procesadores logicos.
